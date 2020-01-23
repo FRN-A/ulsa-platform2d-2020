@@ -5,10 +5,24 @@ using Platform2DUtils.GameplaySystem;
 
 public class Character2D : MonoBehaviour
 {
+    protected SpriteRenderer spr;
+    protected Animator anim;
+    protected Rigidbody2D rb2D;
     [SerializeField]
-    float moveSpeed = 2;
-   void Update()
-   {
-       GameplaySystem.TMovementDelta(transform, moveSpeed);
-   }
+    protected float jumpForce = 7f;
+
+    [SerializeField]
+    protected float moveSpeed = 2;
+
+    void Awake()
+    {
+        spr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        rb2D = GetComponent<Rigidbody2D>();
+    }
+
+    protected bool FlipSprite
+    {
+        get => GameplaySystem.Axis.x < 0 ? true  : GameplaySystem.Axis.x > 0 ? false : spr.flipX;
+    }   
 }

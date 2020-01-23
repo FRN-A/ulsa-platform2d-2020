@@ -22,13 +22,26 @@ namespace Platform2DUtils.GameplaySystem
         }
 
         ///<summary>
-        /// Moves player in Horizontal axis with keyboard inputs.
+        /// Moves player in Horizontal axis with keyboard inputs and multiplied by delta time.
         ///</summary>
         ///<param name="t">Transform component of the player</param>
         ///<param name="moveSpeed">The coeficient of speed</param>
         public static void TMovementDelta(Transform transform, float moveSpeed)
         {
             transform.Translate(Vector2.right * Axis.x * moveSpeed * Time.deltaTime);
+        }
+
+        ///<summary>
+        /// Returns if jmup button was buttondown.
+        ///</summary>
+        public static bool JumpBtn
+        {
+            get =>Input.GetButtonDown("Jump");
+        }
+
+        public static void Jump(Rigidbody2D rigidBody2D, float jumpForce)
+        {
+            rigidBody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
 }
