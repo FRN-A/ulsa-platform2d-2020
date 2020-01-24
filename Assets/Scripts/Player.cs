@@ -5,6 +5,17 @@ using Platform2DUtils.GameplaySystem;
 
 public class Player : Character2D
 {
+    void FixedUpdate()
+    {        
+        if(GameplaySystem.JumpBtn){
+            if(Grounding)
+            {
+                anim.SetTrigger("jump");
+                GameplaySystem.Jump(rb2D, jumpForce);
+            }
+        }
+        anim.SetBool("grounding", Grounding);
+    }
     void Update()
     {
        GameplaySystem.TMovementDelta(transform, moveSpeed);
@@ -14,8 +25,5 @@ public class Player : Character2D
     {
         spr.flipX = FlipSprite;
         anim.SetFloat("axisX", Mathf.Abs(GameplaySystem.Axis.x));
-        if(JumpBtn){
-            anim.SetTrigger("Jump");
-        }
     }
 }
