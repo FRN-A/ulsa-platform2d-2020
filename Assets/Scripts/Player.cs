@@ -26,4 +26,15 @@ public class Player : Character2D
         spr.flipX = FlipSprite;
         anim.SetFloat("axisX", Mathf.Abs(GameplaySystem.Axis.x));
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("collectable"))
+        {
+            Collectable collectable = other.GetComponent<Collectable>();
+            GameManager.instance.Score.AddPoints(collectable.Points);
+            //score.AddPoints(collectable.Points);
+            Destroy(other.gameObject);
+        }
+    }
 }

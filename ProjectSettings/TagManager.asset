@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - collectable
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - 
   - PostProcessing
   - Ground
-  - 
-  - 
+  - Player
+  - Collectable
   - 
   - 
   - 
@@ -40,4 +41,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1855976199
+    locked: 0
+  - name: Tress
+    uniqueID: 2995384073
+    locked: 0
+  - name: Rocks
+    uniqueID: 3424555439
+    locked: 0
+  - name: Grass
+    uniqueID: 4240306921
+    locked: 0
+  - name: Collectable
+    uniqueID: 4272326883
+    locked: 0
+  - name: Player
+    uniqueID: 11339995
     locked: 0
