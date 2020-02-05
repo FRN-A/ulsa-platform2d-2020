@@ -3569,7 +3569,7 @@ GameObject:
   - component: {fileID: 1920529975}
   - component: {fileID: 1920529974}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3588,6 +3588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  delay: 2
+  dir: {x: 1, y: 0}
 --- !u!212 &1920529975
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3623,8 +3625,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 11339995
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3dcf4ab5a3874e443862596de3d49737, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3645,7 +3647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920529973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.744793, y: -3.0601788, z: 0}
+  m_LocalPosition: {x: 34.83, y: -3.0601788, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
