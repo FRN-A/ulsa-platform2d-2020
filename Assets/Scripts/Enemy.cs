@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character2D
 {
     [SerializeField]
     float moveSpeed = 3f;
@@ -19,7 +19,14 @@ public class Enemy : MonoBehaviour
         if(timer >= delay)
         {
             timer = 0;
-            dir = dir == Vector2.right ? Vector2.left : Vector2.right;
+            //dir = dir == Vector2.right ? Vector2.left : Vector2.right;
+            dir.x = dir.x > 0 ? -1 : 1;
+            IFlip flip = new NPCFlip();
+            spr.flipX = flip.FlipSprite(dir.x, spr);
         }
     }
+
+    /*public bool FlipSprite(){
+        get => dir.x > 0 ? false : true;
+    }*/
 }

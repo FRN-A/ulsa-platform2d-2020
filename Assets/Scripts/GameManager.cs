@@ -11,7 +11,15 @@ public class GameManager : MonoBehaviour
     public Score Score { get => score; }
 
    void Awake()
-   {
-       instance = this;
+   {       
+       if(instance)
+       {
+           Destroy(gameObject);
+       }
+       else
+       {
+           instance = this;
+       }
+       DontDestroyOnLoad(gameObject);
    } 
 }
