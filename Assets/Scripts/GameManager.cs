@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Platform2DUtils.MemorySystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     Score score;
 
     public Score Score { get => score; }
+    public GameData GameData { get;set; }
 
    void Awake()
    {       
@@ -19,9 +21,15 @@ public class GameManager : MonoBehaviour
        else
        {
            instance = this;
+           GameData = new GameData();
        }
        DontDestroyOnLoad(gameObject);
    } 
+
+   public void Save()
+   {
+       MemorySystem.SaveData(GameData);
+   }
 
    void Start()
    {
