@@ -5,8 +5,6 @@ using UnityEngine;
 public class Enemy : Character2D
 {
     [SerializeField]
-    float moveSpeed = 3f;
-    [SerializeField]
     float delay;
     float timer;
     [SerializeField]

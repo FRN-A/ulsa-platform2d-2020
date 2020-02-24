@@ -5,13 +5,14 @@ using Platform2DUtils.GameplaySystem;
 
 public class Player : Character2D
 {
+    public Vector2 Pos {get;set;}
+
     [SerializeField]
     float maxVel;
 
     void Start()
     {
-        GameManager.instance.GameData.Player = this; 
-        GameManager.instance.Save();  
+        transform.position = GameManager.instance.GameData.PlayerPos;
     }
 
     void FixedUpdate()
@@ -19,6 +20,9 @@ public class Player : Character2D
         if(GameplaySystem.JumpBtn){
             if(Grounding)
             {
+                GameManager.instance.GameData.PlayerPos = transform.position;
+                //Debug.Log(Gamemanager.instance.gameData.Player);
+                GameManager.instance.Save();
                 anim.SetTrigger("jump");
                 GameplaySystem.Jump(rb2D, jumpForce);
             }
@@ -27,7 +31,7 @@ public class Player : Character2D
         GameplaySystem.MovementVelocity(rb2D, moveSpeed, maxVel);
     }
     void Update()
-    {
+    { 
        //GameplaySystem.TMovementDelta(transform, moveSpeed);
     }
 

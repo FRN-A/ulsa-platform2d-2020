@@ -31,8 +31,18 @@ public class GameManager : MonoBehaviour
        MemorySystem.SaveData(GameData);
    }
 
+   public void Load()
+   {
+       GameData = MemorySystem.LoadData();
+   }
+
+   public void Delete()
+   {
+       MemorySystem.DeleteData();
+   }
    void Start()
    {
-
+       Load();
+       Debug.Log(GameData.PlayerPos);
    }
 }
