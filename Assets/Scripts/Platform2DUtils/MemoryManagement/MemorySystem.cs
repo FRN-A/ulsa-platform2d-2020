@@ -37,5 +37,10 @@ namespace Platform2DUtils.MemorySystem
         {
             if(File.Exists(path)) File.Delete(path);
         }
+
+        public static bool DataExists
+        {
+            get => File.Exists(path);
+        }
     }
 }
